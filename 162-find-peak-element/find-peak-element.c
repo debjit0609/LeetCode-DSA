@@ -1,16 +1,11 @@
 int findPeakElement(int* nums, int numsSize) {
-    int left = 0;
-    int right = numsSize - 1;
-    
-    while (left < right) {
-        int mid = left + (right - left) / 2;
-        
-        if (nums[mid] > nums[mid + 1]) {
-            right = mid;
-        } else {
-            left = mid + 1;
+    int max = nums[0];
+    int idx = 0;
+    for(int i =0; i<numsSize; i++){
+        if(nums[i] > max){
+            max = nums[i];
+            idx = i;
         }
     }
-    
-    return left;
+    return idx;
 }
